@@ -1,0 +1,8 @@
+:root { --cafe: #6f4e37; --cafe-oscuro: #4b3225; --crema: #f5ebe0; }
+body { background-color: var(--crema); }
+.navbar-cafe { background-color: var(--cafe-oscuro); }
+.badge-cafe { background-color: var(--cafe); color: #fff; }
+.btn-cafe { background-color: var(--cafe); color: #fff; border: none; }
+.btn-cafe:hover { background-color: var(--cafe-oscuro); color: #fff; }
+.card { border: none; border-radius: 12px; }
+h1, h2, h3 { color: var(--cafe-oscuro); }

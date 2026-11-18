@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="mb-3">Iniciar sesión</h3>
+        {% if form.errors %}<div class="alert alert-danger">Usuario o contraseña incorrectos.</div>{% endif %}
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ next }}">
+          <div class="mb-3">
+            <label class="form-label" for="id_username">Usuario</label>
+            <input type="text" name="username" id="id_username" class="form-control" required autofocus>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id_password">Contraseña</label>
+            <input type="password" name="password" id="id_password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-cafe w-100">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
