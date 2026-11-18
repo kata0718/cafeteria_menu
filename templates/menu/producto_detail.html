@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{ producto.nombre }}{% endblock %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <span class="badge badge-cafe mb-2">{{ producto.categoria.nombre }}</span>
+    <h2>{{ producto.nombre }}</h2>
+    <p>{{ producto.descripcion|default:"Sin descripción." }}</p>
+    <ul class="list-unstyled">
+      <li><strong>Precio:</strong> ${{ producto.precio }}</li>
+      <li><strong>Ingreso al menú:</strong> {{ producto.fecha_ingreso|date:"d/m/Y" }}</li>
+      <li><strong>Estado:</strong> {% if producto.disponible %}Disponible{% else %}Agotado{% endif %}</li>
+    </ul>
+    <a href="{% url 'producto_list' %}" class="btn btn-secondary">Volver</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'producto_update' producto.pk %}" class="btn btn-warning">Editar</a>
+      <a href="{% url 'producto_delete' producto.pk %}" class="btn btn-danger">Eliminar</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

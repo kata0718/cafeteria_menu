@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar producto{% endblock %}
+{% block content %}
+<div class="card border-danger">
+  <div class="card-body">
+    <h3>¿Eliminar "{{ object.nombre }}"?</h3>
+    <p>Esta acción borrará el producto de la base de datos y no se puede deshacer.</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+      <a href="{% url 'producto_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
